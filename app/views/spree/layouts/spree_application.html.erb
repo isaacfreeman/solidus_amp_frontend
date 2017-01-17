@@ -5,10 +5,11 @@
 <!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
 <!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
   <head data-hook="inside_head">
+    <link rel="amphtml" href="/amp<%= request.original_url %>">
+    <link rel="canonical" href="<%= request.original_url %>">
     <%= render :partial => 'spree/shared/head' %>
   </head>
   <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
-    <h1>foo</h1>
     <div class="container">
 
       <%= render :partial => 'spree/shared/header' %>
