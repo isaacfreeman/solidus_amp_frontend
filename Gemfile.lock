@@ -192,6 +192,8 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
+    fastimage (2.0.1)
+      addressable (~> 2)
     ffaker (2.4.0)
     ffi (1.9.17)
     font-awesome-rails (4.7.0.1)
@@ -445,6 +447,7 @@ DEPENDENCIES
   database_cleaner
   dotenv-rails
   factory_girl_rails
+  fastimage
   ffaker
   i18n-tasks
   jbuilder (~> 2.5)

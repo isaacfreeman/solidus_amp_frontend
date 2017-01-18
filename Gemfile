@@ -38,6 +38,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'solidus', github: "solidusio/solidus", branch: "v2.1"
 gem 'solidus_auth_devise'
 
+# Dependencies for AMP
+gem 'fastimage'
+
 group :development, :test do
   gem "awesome_print"
   gem "better_errors"
