@@ -12,10 +12,20 @@ module AmpHelper
     end
 
     image_url = Addressable::URI.parse(source)
-    source.prepend(request.host) unless image_url.host.present?
+    host = request.host
+    host << "/" unless source.first == "/"
+    source.prepend(host) unless image_url.host.present?
     source.prepend(request.scheme + "://") unless image_url.scheme.present?
     options[:width], options[:height] = FastImage.size(source)
     options[:layout] = "responsive"
     tag("amp-img", options)
+  end
+
+  # Overrides ActionView::Helpers::FormTagHelper#form_tag_with_body
+  def form_tag_with_body(html_options, content)
+    html_options["_target"] = "_top"
+    output = form_tag_html(html_options)
+    output << content
+    output.safe_concat("</form>")
   end
 end

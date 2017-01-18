@@ -16,5 +16,9 @@ Spree::Core::Engine.routes.draw do
   scope "(:amp)", constraints: { amp: /amp/ } do
     # Put here all routes that also have AMP variants
     root to: "home#index"
+
+    resources :products, only: [:show]
+    get '/orders/populate-get', to: 'orders#populate'
+
   end
 end

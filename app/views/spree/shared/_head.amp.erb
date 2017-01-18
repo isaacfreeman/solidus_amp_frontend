@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+<title><%= title %></title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1" name="viewport">
+<%== meta_data_tags %>
+<%= favicon_link_tag 'favicon.ico' %>
+<%= stylesheet_link_tag 'spree/frontend/all', :media => 'screen' %>
+<%= csrf_meta_tags %>
+<%= javascript_include_tag 'spree/frontend/all' %>
+<!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js"></script>
+<![endif]-->
+
+<% if request.format == "amp" %>
+  <link rel="canonical" href="<%= request.original_url.sub("/amp", "") %>">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+<% else %>
+  <link rel="canonical" href="<%= request.original_url %>">
+  <link rel="amphtml" href="/amp<%= request.original_url %>">
+<% end %>
+<%= yield :head %>
